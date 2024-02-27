@@ -1,6 +1,6 @@
 ![itgamBanner](https://raw.githubusercontent.com/Yampyyii/VueJs-ShoppingCart/main/md/img/itgambanner.jpg)
 
-# Shopping cart🛒 Project
+# Shopping Cart🛒 Project
 
 Proyecto didactico para el curso de Desarrollo de Aplicacionespara Dispositivos moviles usando _VueJs- Compostion API_
 
