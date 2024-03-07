@@ -16,12 +16,20 @@ const items = ref([
   { id: 4, label: 'Huevos' }
 ]);
 const newItem= ref(''); 
+const newItemPriority = ref('low')
 </script>
 
 <template>
   <h1> <i :class="shoppingIcon">local_mall</i> {{ header }}</h1>
  <input v-model="newItem" type="text" placeholder="Agregar articulo">
-  <ul>
+ <!-- Radio Buttons -->
+ <label ><input type="radio" v-model="newItemPriority" value="low"> Baja</label>
+ <label ><input type="radio" v-model="newItemPriority" value="high"> Alta</label>
+ <label ><input type="radio" v-model="newItemPriority" value="medium"> No sepo</label>
+ {{ newItemPriority === 'low'?  '🍻':'🤢' }}
+
+ 
+ <ul>
     <if>
     <li v-for="({id, label}, i) in items" v-bind:key="id" >🍻 {{ label }}🍻</li>
   </if>
