@@ -16,25 +16,31 @@ const items = ref([
   { id: 4, label: 'Huevos' }
 ]);
 const newItem= ref(''); 
-const iceCreamFlavors = ref([]) 
+const newItemHighPriority = ref('') 
 </script>
 
 <template>
   <h1> <i :class="shoppingIcon">local_mall</i> {{ header }}</h1>
- <input v-model="newItem" type="text" placeholder="Agregar articulo">
-<label><input type="checkbox" v-model="newItemHighPriority">Alta pioridad</label>
-<!-- Checkbox-->
-{{ newItemHighPriority ? '🍻' : '🏆'}}
+  <div class="add-item form">
+    <input v-model="newItem" type="text" placeholder="Agregar articulo">
+   <label>
+    <input type="checkbox" v-model="newItemHighPriority">
+    Alta pioridad
+  </label >
+   <!-- Checkbox-->
+   <button class="btn btn-primary" v-on:click="items.push({id: items.length, label:newItem})">
+    Agregar articulo
+  </button>
+   {{ newItemHighPriority ? '🍻' : '🏆'}}
+    
+  </div>
  <ul>
     <if>
     <li v-for="({id, label}, i) in items" v-bind:key="id" >🍻 {{ label }}🍻</li>
     
   </if>
 <!--Helados (label>input:checkbox{Flavor$})*3-->
-<label><input type="checkbox" value="🍦" v-model="iceCreamFlavors"> Vainilla</label>
-<label><input type="checkbox" value="🍫" v-model="iceCreamFlavors"> Chocolate</label>
-<label><input type="checkbox" value="😘" v-model="iceCreamFlavors"> Beso de Angel</label>
-{{ iceCreamFlavors }}
+
 </ul>
 </template>
 
