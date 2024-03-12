@@ -22,12 +22,13 @@ const newItemHighPriority = ref('')
 <template>
   <h1> <i :class="shoppingIcon">local_mall</i> {{ header }}</h1>
   <div class="add-item form">
-    <input v-model="newItem" type="text" placeholder="Agregar articulo">
+    <input
+     v-on:keyup.enter="items.push({id: items.length, label:newItem})" v-model="newItem" type="text" placeholder="Agregar articulo">
    <label>
-    <input type="checkbox" v-model="newItemHighPriority">
+    <input  type="checkbox" v-model="newItemHighPriority">
     Alta pioridad
   </label >
-   <!-- Checkbox-->
+   <!-- boton-->
    <button class="btn btn-primary" v-on:click="items.push({id: items.length, label:newItem})">
     Agregar articulo
   </button>
